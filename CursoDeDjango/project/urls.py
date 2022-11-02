@@ -15,14 +15,10 @@ Including another URLconf
 """
 from urllib import request
 from django.contrib import admin
-from django.urls import path
-from django.http import HttpResponse
-
-def ola(request):
-    return HttpResponse("Olá, pessoa!")
+from django.urls import include, path
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('sobre/' , ola),
+    path('', include('recipes.urls'))
 ]
